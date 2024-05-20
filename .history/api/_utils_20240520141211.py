@@ -6,7 +6,7 @@ from api import _mongo_db as mdb
 
 CANONICAL_JSON_OPTIONS = JSONOptions(datetime_representation=2, json_mode=1, document_class=dict, tz_aware=True)
 
-url = ""
+url = "mongodb+srv://jonnygold:1rHF6hprHIrTZq8Jfeye@cluster0.jlwmt.mongodb.net/?retryWrites=true&w=majority&ignoreUndefined=true"
 
 taskDB = mdb.mongoDb(url, "tasksDB")
 
