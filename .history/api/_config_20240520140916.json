@@ -1,0 +1,5 @@
+{
+  "urlMongo": "mongodb://127.0.0.1:27017",
+  "urlMongoAtlas": "",
+  "appVersion":  "0.1.2"
+}

@@ -1,0 +1,5 @@
+{
+  "urlMongo": "mongodb://127.0.0.1:27017",
+  "urlMongoAtlas": "mongodb+srv://jonnygold:1rHF6hprHIrTZq8Jfeye@cluster0.jlwmt.mongodb.net/?retryWrites=true&w=majority&ignoreUndefined=true",
+  "appVersion":  "0.1.2"
+}

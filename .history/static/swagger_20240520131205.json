@@ -1,0 +1,198 @@
+{
+ "swagger": "2.0",
+ "info": {
+   "title": "Task App API",
+   "version": "1.0.0"
+ },
+ "paths": {
+    "/api/users/login/user": {
+      "post": {
+          "tags": [
+            "Authentication"
+          ],
+        "description": "Login User",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user data",
+            "in": "body",
+            "description": "JSON data for the api",
+            "required": true,
+            
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User logged in"
+          },
+          "400": {
+            "description": "Invalid request data"
+          }
+        }
+      }
+    },
+    "/api/users/get/users": {
+     "get": {
+        "tags": [
+          "Users"
+        ],
+       "description": "Get Users",
+       "produces": [
+         "application/json"
+       ],
+       "responses": {
+         "200": {
+           "description": "Successful operation"
+         }
+       }
+     }
+    },
+    "/api/users/get/user/{userName}": {
+      "get": {
+          "tags": [
+            "Users"
+          ],
+        "description": "Get User by ID",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "userName",
+            "in": "path",
+            "description": "User Name",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/api/tasks/get/tasks/{userName}": {
+      "get": {
+          "tags": [
+            "Tasks"
+          ],
+        "description": "Get Tasks by User Name",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "userName",
+            "in": "path",
+            "description": "User Name",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Tasks not found"
+          }
+        }
+      }
+    },
+    "/api/tasks/get/task/{taskId}": {
+      "get": {
+          "tags": [
+            "Tasks"
+          ],
+        "description": "Get Task by ID",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "taskId",
+            "in": "path",
+            "description": "Task ID",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Task not found"
+          }
+        }
+      }
+    },
+
+
+   "/access": {
+     "post": {
+       "description": "Grants access to an user",
+       "consumes": [
+         "application/json"
+       ],
+       "produces": [
+         "application/json"
+       ],
+       "parameters": [
+         {
+           "name": "access data",
+           "in": "body",
+           "description": "JSON data for the api",
+           "required": true,
+           "schema": {
+             "$ref": "#/definitions/AccessData"
+           }
+         }
+       ],
+       "responses": {
+         "200": {
+           "description": "User granted access"
+         },
+         "400": {
+           "description": "Invalid request data"
+         }
+       }
+     }
+   }
+
+ },
+ "definitions": {
+   "AccessData": {
+     "type": "object",
+     "properties": {
+       "name": {
+         "type": "string"
+       },
+       "server": {
+         "type": "string"
+       }
+     }
+   }
+ }
+}
