@@ -1,4 +1,4 @@
-from flask import Flask, redirect
+from flask import Flask, redirect,jsonify
 from markupsafe import escape
 from flask_swagger_ui import get_swaggerui_blueprint
 from api import api
@@ -23,17 +23,18 @@ app.register_blueprint(swagger_ui_blueprint, url_prefix=SWAGGER_URL)
 
 @app.route('/')
 def index():
-    return redirect("https://u767k4g1u6.execute-api.us-east-1.amazonaws.com/swagger/")
-    # return 'index'
+    #  return jsonify(message='Hello from root!')
+    return redirect("/swagger")
+    # return redirect("https://u767k4g1u6.execute-api.us-east-1.amazonaws.com/swagger/")
 
 
 if __name__ == "__main__":
   print('****************************************')
-  print('flask-task-app: Ver', '0.1.1')
+  print('flask-task-app: Ver', '0.1.3')
   print('****************************************\n')
-  # app.run(host='0.0.0.0', port=5000, debug=True)
-  app.debug = True
-  app.run()
+  app.run(host='0.0.0.0', port=5001, debug=True)
+#   app.debug = True
+#   app.run()
 
 
 
