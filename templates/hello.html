@@ -1,0 +1,21 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Hello{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+{% block body %}
+
+<div class="container-fluid">
+ {% if person %}
+ <p>Hello {{ person }}!</p>
+{% else %}
+ <p>Hello, World!</p>
+{% endif %}
+ <!-- Content here -->
+</div>
+
+{% endblock %}
+{% endblock %}

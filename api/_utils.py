@@ -6,11 +6,17 @@ from api import _mongo_db as mdb
 
 CANONICAL_JSON_OPTIONS = JSONOptions(datetime_representation=2, json_mode=1, document_class=dict, tz_aware=True)
 
-# Update
 
-url = "mongodb+srv://jonnygold:1rHF6hprHIrTZq8Jfeye@cluster0.jlwmt.mongodb.net/?retryWrites=true&w=majority&ignoreUndefined=true"
+with open("config/config.json") as config_file:config = json.load(config_file)
 
-taskDB = mdb.mongoDb(url, "tasksDB")
+taskDB = mdb.mongoDb(config["urlMongoAtlas"], "tasksDB")
+
+
+def getLoginData(data):
+ return {
+  "email": data['email'],
+  "password": data['password']
+ }
 
 
 def remove_oid(string):
@@ -33,7 +39,8 @@ def usersManage(command, category, val, data):
     else:
         return 'Invalid command'
     
-def login(data):
+def login(data, isAPI=True):
+    print('login', data)
     res = taskDB.queryCollectionItem('users', data)
     if res:
         res["created"] = str(res["created"])
@@ -42,7 +49,9 @@ def login(data):
         res["isLoggedIn"] = True
         data = dumps(res, json_options=CANONICAL_JSON_OPTIONS)
         data = remove_oid(data)
-        return jsonify(json.loads(data))
+        if isAPI: data = jsonify(json.loads(data))
+        return data
+        
 
     else:
         return {
@@ -75,7 +84,8 @@ def tasksManage(command, category, val=None, data=None):
         return tasksManageAction(command, val, data)
 
 
-def tasksDataGet(category, val=None, data=None):
+def tasksDataGet(category, val=None, data=None, isAPI=True):
+    print(category, val, data)
     if category == 'tasks':
         res = taskDB.queryCollection('tasks', {'user': val})
         for item in res:
@@ -87,7 +97,8 @@ def tasksDataGet(category, val=None, data=None):
         res["updated"] = str(res["updated"])
     data = dumps(res, json_options=CANONICAL_JSON_OPTIONS)
     data = remove_oid(data)
-    return jsonify(json.loads(data))
+    if isAPI: data = jsonify(json.loads(data))
+    return data
 
 
 def tasksManageAction(command, val, data):

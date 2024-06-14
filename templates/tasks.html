@@ -1,0 +1,58 @@
+
+{% extends 'base.html' %}
+{% block title %}Tasks{% endblock %}
+
+{% block content %}
+{% include 'topbar.html' %}
+
+
+
+
+<div class="container-fluid">
+  <h1>Welcome: {{user.name}}</h1>
+  <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        {% for col in tableCols %}
+        <th>{{col}}</th>
+        {% endfor %}
+        <th colspan=2>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for task in tasks %}
+      <tr>
+        {% for col in tableCols %}
+        <td>{{task[col]}}</td>
+        {% endfor %}
+        <td>
+            <form class="form" method="get" action="/tasks/edit/{{task['_id']}}"  >
+              <button class="btn btn-primary rounded-pill" type="submit" >Edit Task</button>
+            </form>
+        </td>
+        <td>
+          <form class="form" method="get" action="/tasks/delete/{{task['_id']}}" >
+            <button class="btn btn-danger rounded-pill" type="submit" >Delete</button>  
+          </form>
+        
+  
+         </td>
+        
+      </tr>
+      {% endfor %}
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="7">
+         <div class="d-grid gap-2 d-md-flex justify-content-md-center" >
+          {% include 'add.html'   %}
+          
+         </div>
+        </td>
+       </tr>
+    </tfoot>
+  </table>
+</div>
+
+
+{% endblock %}

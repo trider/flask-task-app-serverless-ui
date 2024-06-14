@@ -220,7 +220,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/flask-python-app-sl/dev/1716712020657-2024-05-26T08:27:00.657Z/flask-python-app-sl.zip"
+                "S3Key": "serverless/flask-python-app-sl/dev/1718369594492-2024-06-14T12:53:14.492Z/flask-python-app-sl.zip"
               },
               "Handler": "wsgi_handler.handler",
               "Runtime": "python3.9",
@@ -238,14 +238,14 @@
               "ApiLogGroup"
             ]
           },
-          "ApiLambdaVersiontE9tTJgy3LEPU1L5VyNtoVC5SwwNdXBm1BKqzkKV6M": {
+          "ApiLambdaVersion1vN8UAsrmFjNXLTN4DmNyCBlrs29T3uqIACEY2ZXU": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ApiLambdaFunction"
               },
-              "CodeSha256": "qiP1P75EfkNlksZZqf89bmLMhbjH+td6Qm9qMdiB0os="
+              "CodeSha256": "wdnPluQ5S7L9ZOYqVXQr0SCuq6dV/PONSDwA8esqkCE="
             }
           },
           "HttpApi": {
@@ -380,7 +380,7 @@
           "ApiLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ApiLambdaVersiontE9tTJgy3LEPU1L5VyNtoVC5SwwNdXBm1BKqzkKV6M"
+              "Ref": "ApiLambdaVersion1vN8UAsrmFjNXLTN4DmNyCBlrs29T3uqIACEY2ZXU"
             },
             "Export": {
               "Name": "sls-flask-python-app-sl-dev-ApiLambdaFunctionQualifiedArn"
@@ -536,7 +536,7 @@
         "timeout": 6,
         "runtime": "python3.9",
         "vpc": {},
-        "versionLogicalId": "ApiLambdaVersiontE9tTJgy3LEPU1L5VyNtoVC5SwwNdXBm1BKqzkKV6M"
+        "versionLogicalId": "ApiLambdaVersion1vN8UAsrmFjNXLTN4DmNyCBlrs29T3uqIACEY2ZXU"
       }
     },
     "configValidationMode": "warn",
@@ -569,7 +569,7 @@
     "artifact": "/Users/jonnygold/Code/MVDS/python/flask-python-app-sl/.serverless/flask-python-app-sl.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/flask-python-app-sl/dev/1716712020657-2024-05-26T08:27:00.657Z",
+    "artifactDirectoryName": "serverless/flask-python-app-sl/dev/1718369594492-2024-06-14T12:53:14.492Z",
     "artifact": "flask-python-app-sl.zip"
   }
 }

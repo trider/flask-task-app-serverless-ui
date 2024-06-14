@@ -1,7 +1,12 @@
-from flask import Flask, redirect,jsonify
+from flask import Flask, redirect, render_template
+from flask_bootstrap import Bootstrap5
+
+
 from markupsafe import escape
 from flask_swagger_ui import get_swaggerui_blueprint
+from flask_modals import Modal
 from api import api
+from tasks import hello, login, tasks
 
 
 SWAGGER_URL="/swagger"
@@ -19,14 +24,22 @@ swagger_ui_blueprint = get_swaggerui_blueprint(
 
 app = Flask(__name__)
 app.register_blueprint(api.bp)
+app.register_blueprint(hello.bp)
+app.register_blueprint(login.bp)
+app.register_blueprint(tasks.bp)
 app.register_blueprint(swagger_ui_blueprint, url_prefix=SWAGGER_URL)
+
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+bootstrap = Bootstrap5(app)
+modal = Modal(app)
+
+
 
 @app.route('/')
 def index():
-    #  return jsonify(message='Hello from root!')
     return redirect("/swagger")
     # return redirect("https://u767k4g1u6.execute-api.us-east-1.amazonaws.com/swagger/")
-
+    
 
 if __name__ == "__main__":
   print('****************************************')

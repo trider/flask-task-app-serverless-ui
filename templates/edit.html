@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Edit Task{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+{% include 'topbar.html' %}
+<div class="container-fluid container-lg d-lg-flex" >
+
+
+ <div class="mx-auto p-2" style="margin-top: 2%;width:60%">
+  <h2>Edit Task</h2>
+  <form class="form"  method="post" action="/tasks/update/{{taskId}}">
+    <div class="mb-3">
+      <label for="taskName">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter Task Name"
+        name="name"
+        value="{{ task.name }}"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="taskDescription">Description</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter Task Description"
+        name="description"
+        value="{{ task.description }}"
+      />
+    </div>
+    <div>
+    <div class="mb-3">
+      <label for="taskStatus">Status</label>
+      <select class="form-select" id="taskStatus" name="status" value="{{task.status}}">
+        <option value="do">Do</option>
+        <option value="doing">Doing</option>
+        <option value="done">Done</option>
+      </select>
+    </div>
+      
+    <div class="text-center d-grid">
+      <button type="submit" class="btn btn-primary rounded-pill">
+        Submit
+      </button>
+    </div>
+  </form>
+   
+ </div>
+</div>
+{% endblock %}
+
