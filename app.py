@@ -24,16 +24,18 @@ bootstrap = Bootstrap5(app)
 @app.route('/')
 def index():
     return redirect("/login")
-   
+
+
+  
     
 
 if __name__ == "__main__":
   print('****************************************')
   print('flask-task-app: Ver', '0.1.3')
   print('****************************************\n')
-  app.run(host='0.0.0.0', port=5001, debug=True)
-#   app.debug = True
-#   app.run()
+  # app.run(host='0.0.0.0', port=5001, debug=True)
+  # app.debug = True
+  app.run()
 
 
 

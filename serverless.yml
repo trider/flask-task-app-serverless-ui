@@ -1,6 +1,6 @@
 org: trider
-app: flask-task-app-sl
-service: flask-python-app-sl
+app: flask-task-app-sl-ui
+service: flask-python-app-sl-ui
 
 frameworkVersion: '3'
 
@@ -21,3 +21,10 @@ functions:
 plugins:
   - serverless-wsgi
   - serverless-python-requirements
+
+package:
+  patterns:
+    - '!node_modules/**'
+    - '!venv/**'
+    - '!apienv/**'
+    - '!__pycache__/**'

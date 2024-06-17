@@ -74,7 +74,7 @@
     "ApiLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/flask-python-app-sl-dev-api"
+        "LogGroupName": "/aws/lambda/flask-python-app-sl-ui-dev-api"
       }
     },
     "IamRoleLambdaExecution": {
@@ -102,7 +102,7 @@
               "Fn::Join": [
                 "-",
                 [
-                  "flask-python-app-sl",
+                  "flask-python-app-sl-ui",
                   "dev",
                   "lambda"
                 ]
@@ -120,7 +120,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/flask-python-app-sl-dev*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/flask-python-app-sl-ui-dev*:*"
                     }
                   ]
                 },
@@ -131,7 +131,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/flask-python-app-sl-dev*:*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/flask-python-app-sl-ui-dev*:*:*"
                     }
                   ]
                 }
@@ -144,7 +144,7 @@
           "Fn::Join": [
             "-",
             [
-              "flask-python-app-sl",
+              "flask-python-app-sl-ui",
               "dev",
               {
                 "Ref": "AWS::Region"
@@ -208,11 +208,11 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/flask-python-app-sl/dev/1718369594492-2024-06-14T12:53:14.492Z/flask-python-app-sl.zip"
+          "S3Key": "serverless/flask-python-app-sl-ui/dev/1718619011112-2024-06-17T10:10:11.112Z/flask-python-app-sl-ui.zip"
         },
         "Handler": "wsgi_handler.handler",
         "Runtime": "python3.9",
-        "FunctionName": "flask-python-app-sl-dev-api",
+        "FunctionName": "flask-python-app-sl-ui-dev-api",
         "MemorySize": 1024,
         "Timeout": 6,
         "Role": {
@@ -226,27 +226,27 @@
         "ApiLogGroup"
       ]
     },
-    "ApiLambdaVersion1vN8UAsrmFjNXLTN4DmNyCBlrs29T3uqIACEY2ZXU": {
+    "ApiLambdaVersionSnAorRJ9ZqE4cAbBPehtGCPP1fPCnYVHwe41iPN3M0": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ApiLambdaFunction"
         },
-        "CodeSha256": "wdnPluQ5S7L9ZOYqVXQr0SCuq6dV/PONSDwA8esqkCE="
+        "CodeSha256": "EHMjwF3uAc7bR8pDSz9HVHYKGHF/dUqglKzkOC5CtbA="
       }
     },
     "HttpApi": {
       "Type": "AWS::ApiGatewayV2::Api",
       "Properties": {
-        "Name": "dev-flask-python-app-sl",
+        "Name": "dev-flask-python-app-sl-ui",
         "ProtocolType": "HTTP"
       }
     },
     "HttpApiLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/http-api/flask-python-app-sl-dev"
+        "LogGroupName": "/aws/http-api/flask-python-app-sl-ui-dev"
       }
     },
     "HttpApiStage": {
@@ -354,7 +354,7 @@
         "Ref": "ServerlessDeploymentBucket"
       },
       "Export": {
-        "Name": "sls-flask-python-app-sl-dev-ServerlessDeploymentBucketName"
+        "Name": "sls-flask-python-app-sl-ui-dev-ServerlessDeploymentBucketName"
       }
     },
     "EnterpriseLogAccessIamRole": {
@@ -365,16 +365,16 @@
         ]
       },
       "Export": {
-        "Name": "sls-flask-python-app-sl-dev-EnterpriseLogAccessIamRole"
+        "Name": "sls-flask-python-app-sl-ui-dev-EnterpriseLogAccessIamRole"
       }
     },
     "ApiLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ApiLambdaVersion1vN8UAsrmFjNXLTN4DmNyCBlrs29T3uqIACEY2ZXU"
+        "Ref": "ApiLambdaVersionSnAorRJ9ZqE4cAbBPehtGCPP1fPCnYVHwe41iPN3M0"
       },
       "Export": {
-        "Name": "sls-flask-python-app-sl-dev-ApiLambdaFunctionQualifiedArn"
+        "Name": "sls-flask-python-app-sl-ui-dev-ApiLambdaFunctionQualifiedArn"
       }
     },
     "HttpApiId": {
@@ -383,7 +383,7 @@
         "Ref": "HttpApi"
       },
       "Export": {
-        "Name": "sls-flask-python-app-sl-dev-HttpApiId"
+        "Name": "sls-flask-python-app-sl-ui-dev-HttpApiId"
       }
     },
     "HttpApiUrl": {
@@ -408,7 +408,7 @@
         ]
       },
       "Export": {
-        "Name": "sls-flask-python-app-sl-dev-HttpApiUrl"
+        "Name": "sls-flask-python-app-sl-ui-dev-HttpApiUrl"
       }
     }
   }

@@ -12,6 +12,8 @@ click==8.1.7
 colorama==0.4.3
 dnspython==2.6.1
 Flask==3.0.3
+Flask-Modals==0.5.1
+flask-swagger-ui==4.11.1
 idna==3.7
 importlib_metadata==7.1.0
 itsdangerous==2.2.0
@@ -29,6 +31,7 @@ referencing==0.35.1
 requests==2.31.0
 rpds-py==0.18.1
 semantic-version==2.8.5
+setuptools==70.0.0
 six==1.16.0
 termcolor==1.1.0
 urllib3==1.26.18

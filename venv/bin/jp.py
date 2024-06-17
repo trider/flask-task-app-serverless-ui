@@ -1,4 +1,4 @@
-#!/Users/jonnygold/Code/MVDS/python/flask-python-app-sl/venv/bin/python3.9
+#!/Users/jonnygold/Code/MVDS/python/flask-task-app-serverless-ui/venv/bin/python3.12
 
 import sys
 import json
